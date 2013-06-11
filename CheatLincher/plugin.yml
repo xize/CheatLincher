@@ -1,0 +1,23 @@
+name: CheatLincher
+version: 1.0
+description: a anti cheat plugin
+author: Xeph0re
+authors: [] 
+website:
+
+main: xize.cheatlincher.CheatLincher
+database: false
+depend: []
+
+commands:
+  unknown:
+    description: unknown command
+    aliases: [unkown]
+    permission:
+    permission-message:
+
+permissions:
+  cheatlincher.*:
+    description: Gives access to all plugin commands
+    children:
+      cheatlincher.checks.fastplace: true
