@@ -8,6 +8,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Listener;
 
 import xize.cheatlincher.CheatLincher;
+import xize.cheatlincher.checks.blocks.fastbreak_SurvivalCheck;
 import xize.cheatlincher.checks.blocks.fastplace_CreativeCheck;
 import xize.cheatlincher.checks.blocks.fastplace_SurvivalCheck;
 
@@ -18,8 +19,9 @@ public class blockHandler {
 	}
 	
 	public void getBlockActions() {
-		if(getKey("fastplace-Survival")) { getListener(new fastplace_SurvivalCheck(plugin)); }
-		if(getKey("fastplace-Creative")) { getListener(new fastplace_CreativeCheck(plugin)); }
+		if(getKey("fastplace-Survival")) { getListener(new fastplace_SurvivalCheck(plugin));}
+		if(getKey("fastplace-Creative")) { getListener(new fastplace_CreativeCheck(plugin));}
+		if(getKey("fastBreak-Survival")) { getListener(new fastbreak_SurvivalCheck(plugin));}
 	}
 	
 	public boolean getKey(String path) {
