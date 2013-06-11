@@ -9,6 +9,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.player.PlayerKickEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import xize.cheatlincher.CheatLincher;
 
@@ -39,6 +41,20 @@ public class fastplace_SurvivalCheck implements Listener {
 			} else {
 				placeTime.put(e.getPlayer().getName(), System.currentTimeMillis());
 			}
+		}
+	}
+	
+	@EventHandler
+	public void quit(PlayerQuitEvent e) {
+		if(placeTime.containsKey(e.getPlayer().getName())) {
+			placeTime.remove(e.getPlayer().getName());
+		}
+	}
+	
+	@EventHandler
+	public void quit(PlayerKickEvent e) {
+		if(placeTime.containsKey(e.getPlayer().getName())) {
+			placeTime.remove(e.getPlayer().getName());
 		}
 	}
 
