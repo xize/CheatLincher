@@ -40,7 +40,7 @@ public class fastbreak_SurvivalCheck implements Listener {
 					} else {
 						time.put(e.getPlayer().getName(), System.currentTimeMillis());
 					}
-				} else {
+				} else if(e.getPlayer().getItemInHand().getType() == Material.IRON_SPADE) {
 					if(System.currentTimeMillis() - time.get(e.getPlayer().getName()) <= 700) {
 						Long lvl = System.currentTimeMillis() - time.get(e.getPlayer().getName());
 						for(Player p : Bukkit.getOnlinePlayers()) {
