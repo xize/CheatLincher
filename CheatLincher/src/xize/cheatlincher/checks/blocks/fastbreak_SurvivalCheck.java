@@ -41,7 +41,7 @@ public class fastbreak_SurvivalCheck implements Listener {
 						time.put(e.getPlayer().getName(), System.currentTimeMillis());
 					}
 				} else if(e.getPlayer().getItemInHand().getType() == Material.IRON_SPADE) {
-					if(System.currentTimeMillis() - time.get(e.getPlayer().getName()) <= 700) {
+					if(System.currentTimeMillis() - time.get(e.getPlayer().getName()) <= 300) {
 						Long lvl = System.currentTimeMillis() - time.get(e.getPlayer().getName());
 						for(Player p : Bukkit.getOnlinePlayers()) {
 							if(p.hasPermission("cheatlincer.checks.fastbreak")) {

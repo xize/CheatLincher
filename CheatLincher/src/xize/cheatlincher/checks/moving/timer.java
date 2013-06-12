@@ -16,14 +16,15 @@ public class timer implements Listener {
 	public timer(CheatLincher plugin) {
 		this.plugin = plugin;
 	}
-	
+
 	protected static HashMap<String, Long> timer = new HashMap<String, Long>();
-	
+
 	@EventHandler
 	public void checkTimer(PlayerMoveEvent e) {
-			if(timer.containsKey(e.getPlayer().getName())) {
-				Long time = System.nanoTime() - timer.get(e.getPlayer().getName());
-				e.getPlayer().sendMessage("time test " + time);
+		if(timer.containsKey(e.getPlayer().getName())) {
+			Long time = System.nanoTime() - timer.get(e.getPlayer().getName());
+			e.getPlayer().sendMessage("time test " + time);
+			if(!e.getPlayer().isSprinting()) {
 				if(System.nanoTime() - timer.get(e.getPlayer().getName()) <= 60000) {
 					e.getPlayer().teleport(e.getFrom());
 					long lvl = System.nanoTime() - timer.get(e.getPlayer().getName());
@@ -38,8 +39,11 @@ public class timer implements Listener {
 					timer.put(e.getPlayer().getName(), System.nanoTime());
 				}
 			} else {
-				timer.put(e.getPlayer().getName(), System.nanoTime());
+				return;
 			}
+		} else {
+			timer.put(e.getPlayer().getName(), System.nanoTime());
+		}
 	}
 
 }
