@@ -8,6 +8,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Listener;
 
 import xize.cheatlincher.CheatLincher;
+import xize.cheatlincher.checks.moving.moving_morepackets;
 import xize.cheatlincher.checks.moving.timer;
 
 public class movingHandler {
@@ -18,6 +19,7 @@ public class movingHandler {
 	
 	public void getMoveActions() {
 		if(getKey("timer")) { getListener(new timer(plugin));}
+		if(getKey("movemorepackets")) { getListener(new moving_morepackets(plugin));}
 	}
 	
 	public boolean getKey(String path) {

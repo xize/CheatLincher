@@ -27,6 +27,7 @@ public class Config {
 				con.set("survival-Fly", true);
 				con.set("creative-Fly", true);
 				con.set("timer", true);
+				con.set("movemorepackets", true);
 				con.set("fastBreak-Survival", true);
 				con.set("fastBreak-Creative", true);
 				con.set("fastplace-Survival", true);
