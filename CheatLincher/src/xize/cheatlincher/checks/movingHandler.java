@@ -8,7 +8,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Listener;
 
 import xize.cheatlincher.CheatLincher;
-import xize.cheatlincher.checks.moving.Survivaltimer;
+import xize.cheatlincher.checks.moving.timer;
 
 public class movingHandler {
 	CheatLincher plugin;
@@ -17,7 +17,7 @@ public class movingHandler {
 	}
 	
 	public void getMoveActions() {
-		if(getKey("timer-Survival")) { getListener(new Survivaltimer(plugin));}
+		if(getKey("timer")) { getListener(new timer(plugin));}
 	}
 	
 	public boolean getKey(String path) {

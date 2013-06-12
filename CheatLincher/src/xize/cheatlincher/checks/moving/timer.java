@@ -11,9 +11,9 @@ import org.bukkit.event.player.PlayerMoveEvent;
 
 import xize.cheatlincher.CheatLincher;
 
-public class Survivaltimer implements Listener {
+public class timer implements Listener {
 	CheatLincher plugin;
-	public Survivaltimer(CheatLincher plugin) {
+	public timer(CheatLincher plugin) {
 		this.plugin = plugin;
 	}
 	

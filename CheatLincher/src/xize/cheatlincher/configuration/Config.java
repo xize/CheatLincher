@@ -26,8 +26,7 @@ public class Config {
 				con.set("ignore-ops", true);
 				con.set("survival-Fly", true);
 				con.set("creative-Fly", true);
-				con.set("timer-Survival", true);
-				con.set("timer-Creative", true);
+				con.set("timer", true);
 				con.set("fastBreak-Survival", true);
 				con.set("fastBreak-Creative", true);
 				con.set("fastplace-Survival", true);
