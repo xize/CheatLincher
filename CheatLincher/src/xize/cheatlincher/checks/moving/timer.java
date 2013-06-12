@@ -22,21 +22,23 @@ public class timer implements Listener {
 	@EventHandler
 	public void checkTimer(PlayerMoveEvent e) {
 			if(timer.containsKey(e.getPlayer().getName())) {
-				if(System.currentTimeMillis() - timer.get(e.getPlayer().getName()) <= 20) {
+				Long time = System.nanoTime() - timer.get(e.getPlayer().getName());
+				e.getPlayer().sendMessage("time test " + time);
+				if(System.nanoTime() - timer.get(e.getPlayer().getName()) <= 60000) {
 					e.getPlayer().teleport(e.getFrom());
-					long lvl = System.currentTimeMillis() - timer.get(e.getPlayer().getName());
+					long lvl = System.nanoTime() - timer.get(e.getPlayer().getName());
 					e.getPlayer().sendMessage("result: " + lvl);
 					for(Player p : Bukkit.getOnlinePlayers()) {
 						if(p.hasPermission("cheatlincher.checks.timer")) {
 							p.sendMessage(ChatColor.RED + "[CheatLincher] " + ChatColor.GRAY + e.getPlayer().getName() + " tried to use timer he moved inside 1 miliseconds!");
 						}
 					}
-					timer.put(e.getPlayer().getName(), System.currentTimeMillis());
+					timer.put(e.getPlayer().getName(), System.nanoTime());
 				} else {
-					timer.put(e.getPlayer().getName(), System.currentTimeMillis());
+					timer.put(e.getPlayer().getName(), System.nanoTime());
 				}
 			} else {
-				timer.put(e.getPlayer().getName(), System.currentTimeMillis());
+				timer.put(e.getPlayer().getName(), System.nanoTime());
 			}
 	}
 
